@@ -4,6 +4,7 @@ sudo apt-get install -y arandr flameshot arc-theme feh i3blocks i3status i3 i3-w
 sudo apt-get install -y arandr flameshot arc-theme feh i3blocks i3status lxappearance python3-pip rofi unclutter cargo compton papirus-icon-theme imagemagick
 sudo apt-get install -y libxcb-shape0-dev libxcb-keysyms1-dev libpango1.0-dev libxcb-util0-dev xcb libxcb1-dev libxcb-icccm4-dev libyajl-dev libev-dev libxcb-xkb-dev libxcb-cursor-dev libxkbcommon-dev libxcb-xinerama0-dev libxkbcommon-x11-dev libstartup-notification0-dev libxcb-randr0-dev libxcb-xrm0 libxcb-xrm-dev autoconf meson
 sudo apt-get install -y libxcb-render-util0-dev libxcb-shape0-dev libxcb-xfixes0-dev 
+sudo apt-get install -y polybar
 
 ##################
 # i3-gaps border #
@@ -38,7 +39,7 @@ pip3 install pywal
 # Copy Config #
 ###############
 mkdir -p ~/.config
-cp -r .config/ ~/.config/
+cp -r .config ~/.config
 cp .fehbg ~/.fehbg
 cp .zshrc ~/.zshrc
 
@@ -53,5 +54,7 @@ sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/too
 ###############
 #     font    #
 ###############
-echo "Make sure the font 'JetBrainMono' is installed."
-echo "If not, here you can found it: https://www.jetbrains.com/es-es/lp/mono/"
+echo "Installing JetBrainMono Font .. \n"
+bash -c "$(curl -fsSL https://raw.githubusercontent.com/JetBrains/JetBrainsMono/master/install_manual.sh)"
+#echo "Make sure the font 'JetBrainMono' is installed."
+#echo "If not, here you can found it: https://www.jetbrains.com/es-es/lp/mono/"
