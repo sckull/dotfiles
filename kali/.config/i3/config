@@ -159,7 +159,8 @@ exec --no-startup-id feh --bg-scale ~/.config/wall/wall.png
 #exec_always --no-startup-id compton --blur-background
 #exec_always compton --backend glx --blur-background
 #exec_always --no-startup-id compton
-exec_always --no-startup-id compton -b --config ~/.config/compton/compton.conf
+#exec_always --no-startup-id compton -b --config ~/.config/compton/compton.conf
+exec_always --no-startup-id picom -b --config ~/.config/compton/compton.conf --corner-radius 6
 #exec_always --no-startup-id compton -b --config ~/.config/compton/compton.conf
 
 #exec --no-startup-id ~/.scripts/feh-blur -b 12 -D 0
@@ -173,7 +174,8 @@ exec --no-startup-id flashfocus
 #********************************************************************************
 
 # Theme colorsYU
-# class                   border  backgr. text    indic.   child_border
+# class                  border  backgr. text    indic.   child_border
+#client.focused          #4c7899 #285577 #ffffff #2e9ef4   #285577
 client.focused          #4c7899 #285577 #ffffff #2e9ef4   #285577
 client.focused_inactive #333333 #5f676a #ffffff #484e50   #5f676a
 client.unfocused        #333333 #222222 #888888 #292d2e   #222222
@@ -186,6 +188,8 @@ new_float normal
 
 # Hide borders
 hide_edge_borders none
+
+default_border none
 
 # change borders
 bindsym $mod+y border none
