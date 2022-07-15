@@ -1,0 +1,18 @@
+polybar|warn:  Naming your configuration file 'config' is deprecated, the expected name is 'config.ini'.
+polybar|notice:  Parsing config file: /home/kali/.config/polybar/config
+polybar|notice:  Listening for IPC messages (PID: 846)
+polybar|notice:  Loading module 'clock' of type 'internal/date'
+polybar|notice:  Loading module 'date' of type 'internal/date'
+polybar|notice:  Loading module 'sep' of type 'custom/text'
+polybar|notice:  Loading module 'cpu' of type 'internal/cpu'
+polybar|notice:  Loading module 'sep' of type 'custom/text'
+polybar|notice:  Loading module 'memory' of type 'internal/memory'
+polybar|notice:  Loading module 'sep' of type 'custom/text'
+polybar|notice:  Loading module 'hackthebox' of type 'custom/script'
+polybar|notice:  Loading module 'sep' of type 'custom/text'
+polybar|notice:  Loading module 'tryhackme' of type 'custom/script'
+polybar|notice:  Loading module 'sysmenu' of type 'custom/text'
+polybar|notice:  Loaded 11 modules
+polybar|notice:  Loaded font "Siji:pixelsize=10" (name=DejaVu Sans, offset=3, file=/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf)
+polybar|notice:  Loaded font "Iosevka Nerd Font:style=Regular:pixelsize=10" (name=Iosevka, offset=3, file=/home/kali/.local/share/fonts/iosevka_nerd_font.ttf)
+polybar|notice:  Loaded font "Iosevka Nerd Font:style=Medium:size=22" (name=Iosevka, offset=5, file=/home/kali/.local/share/fonts/iosevka_nerd_font.ttf)

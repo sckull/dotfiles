@@ -1,5 +1,0 @@
-polybar|notice:  Parsing config file: /home/kali/.config/polybar/config
-polybar|error: Invalid value for "module/powermenu.label-separator-foreground", using default value (reason: The reference ${colors.foreground-alt} does not exist (no fallback set))
-polybar|notice:  Loaded font "Siji:pixelsize=10" (name=Bitstream Vera Sans, offset=3, file=/usr/share/fonts/truetype/ttf-bitstream-vera/Vera.ttf)
-polybar|notice:  Loaded font "FontAwesome:pixelsize=10" (name=FontAwesome, offset=3, file=/usr/share/fonts/opentype/font-awesome/FontAwesome.otf)
-polybar|notice:  Loaded font "JetBrains Mono:style=Regular:size=11" (name=JetBrains Mono, offset=3, file=/home/kali/.local/share/fonts/fonts/ttf/JetBrainsMono-Regular.ttf)

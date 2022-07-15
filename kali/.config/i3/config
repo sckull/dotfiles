@@ -204,8 +204,9 @@ bindsym $mod+u border pixel 1
 #bindsym $mod+i border normal
 
 #Polybar
-#exec_always --no-startup-id ~/.config/polybar/launch.sh
-exec_always --no-startup-id ~/.config/polybar/launch.sh --shapes
+exec_always --no-startup-id ~/.config/polybar/launch.sh
+# if i3-themes installed
+#exec_always --no-startup-id ~/.config/polybar/launch.sh --shapes
 
 #############################
 ### settings for i3-gaps: ###
