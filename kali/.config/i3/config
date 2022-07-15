@@ -166,10 +166,11 @@ bindsym $mod+n exec --no-startup-id flash_window
 
 #********************************************************************************
 
-exec --no-startup-id feh --bg-scale ~/.config/wall/wall.jpg
-
-#exec_always --no-startup-id compton --active-opacity 0.9 --blur-background
-exec_always --no-startup-id compton
+exec --no-startup-id feh --bg-scale ~/.config/wall/wall.png
+#exec_always --no-startup-id compton --blur-background
+#exec_always compton --backend glx --blur-background
+#exec_always --no-startup-id compton
+exec_always --no-startup-id compton -b --config ~/.config/compton/compton.conf
 #exec_always --no-startup-id compton -b --config ~/.config/compton/compton.conf
 
 #exec --no-startup-id ~/.scripts/feh-blur -b 12 -D 0
@@ -203,7 +204,8 @@ bindsym $mod+u border pixel 1
 #bindsym $mod+i border normal
 
 #Polybar
-exec_always --no-startup-id ~/.config/polybar/launch.sh
+#exec_always --no-startup-id ~/.config/polybar/launch.sh
+exec_always --no-startup-id ~/.config/polybar/launch.sh --shapes
 
 #############################
 ### settings for i3-gaps: ###
