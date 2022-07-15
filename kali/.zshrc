@@ -1,16 +1,15 @@
 # oh-my-zsh
-export ZSH="/home/kali/.oh-my-zsh"
+export ZSH="$HOME/.oh-my-zsh"
 
 # theme
 ZSH_THEME="pi"
-
 # plugins
 plugins=(git)
 
 source $ZSH/oh-my-zsh.sh
 
 # alacritty compiled with cargo
-export PATH=$PATH:/home/kali/.cargo/bin
+export PATH=$PATH:$HOME/.cargo/bin
 
 # vars
 # wordlist vars

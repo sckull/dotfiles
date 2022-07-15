@@ -1,5 +1,5 @@
 #!/bin/bash
-
+dir=`pwd`
 sudo apt-get install -y arandr flameshot arc-theme feh i3blocks i3status i3 i3-wm lxappearance python3-pip rofi unclutter cargo compton papirus-icon-theme imagemagick
 sudo apt-get install -y arandr flameshot arc-theme feh i3blocks i3status lxappearance python3-pip rofi unclutter cargo compton papirus-icon-theme imagemagick
 sudo apt-get install -y libxcb-shape0-dev libxcb-keysyms1-dev libpango1.0-dev libxcb-util0-dev xcb libxcb1-dev libxcb-icccm4-dev libyajl-dev libev-dev libxcb-xkb-dev libxcb-cursor-dev libxkbcommon-dev libxcb-xinerama0-dev libxkbcommon-x11-dev libstartup-notification0-dev libxcb-randr0-dev libxcb-xrm0 libxcb-xrm-dev autoconf meson
@@ -19,7 +19,7 @@ sudo apt-get install -y polybar xclip
 git clone https://github.com/jwilm/alacritty
 cd alacritty
 cargo build --release && sudo cp target/release/alacritty /usr/local/bin
-cd ..
+cd $dir
 
 #############
 #  i3-gaps  #
@@ -28,7 +28,7 @@ git clone https://www.github.com/Airblader/i3 i3-gaps
 cd i3-gaps && mkdir -p build && cd build && meson ..
 ninja
 sudo ninja install
-cd ../..
+cd $dir
 
 #############
 #   pywal   #
@@ -39,7 +39,7 @@ pip3 install pywal
 # Copy Config #
 ###############
 mkdir -p ~/.config
-cp -r .config ~/.config
+cp -r .config ~/
 cp .fehbg ~/.fehbg
 cp .zshrc ~/.zshrc
 
@@ -50,6 +50,8 @@ echo "After reboot: Select i3 on login, run lxappearance and select arc-dark"
 #   ohmyzsh   #
 ###############
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+mkdir -p $ZSH_CUSTOM/themes
+mv pi.zsh-theme $ZSH_CUSTOM/themes/
 
 ###############
 #     font    #
@@ -58,5 +60,8 @@ echo "Installing JetBrainMono Font .. \n"
 bash -c "$(curl -fsSL https://raw.githubusercontent.com/JetBrains/JetBrainsMono/master/install_manual.sh)"
 #echo "Make sure the font 'JetBrainMono' is installed."
 #echo "If not, here you can found it: https://www.jetbrains.com/es-es/lp/mono/"
-echo "Run setup.sh https://github.com/adi1090x/polybar-themes"
-echo "only run install_fonts()"
+echo "Installing Fonts from polybar-themes"
+
+FDIR="$HOME/.local/share/fonts"
+cp -rf $dir/fonts/* "$FDIR"
+
