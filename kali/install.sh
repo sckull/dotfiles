@@ -13,6 +13,7 @@ sudo apt-get install -y polybar xclip
 
 # picom dependencies
 sudo apt-get install -y libxext-dev libxcb1-dev libxcb-damage0-dev libxcb-xfixes0-dev libxcb-shape0-dev libxcb-render-util0-dev libxcb-render0-dev libxcb-randr0-dev libxcb-composite0-dev libxcb-image0-dev libxcb-present-dev libxcb-xinerama0-dev libxcb-glx0-dev libpixman-1-dev libdbus-1-dev libconfig-dev libgl1-mesa-dev  libpcre2-dev  libevdev-dev uthash-dev libev-dev libx11-xcb-dev
+sudo apt-get install -y zsh
 
 ##################
 # i3-gaps border #
@@ -67,6 +68,7 @@ echo "After reboot: Select i3 on login, run lxappearance and select arc-dark"
 ###############
 #   ohmyzsh   #
 ###############
+ZSH_CUSTOM=$HOME/.oh-my-zsh
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 mkdir -p $ZSH_CUSTOM/themes
 mv pi.zsh-theme $ZSH_CUSTOM/themes/
@@ -83,3 +85,6 @@ echo "Installing Fonts from polybar-themes"
 FDIR="$HOME/.local/share/fonts"
 cp -rf $dir/fonts/* "$FDIR"
 
+echo "Install themes if MATE terminal: https://github.com/HattDroid/MateTermColors"
+echo "Install themes if Gnome terminal: https://gogh-co.github.io/Gogh/"
+echo "Make sure alacritty is installed if not, check if cargo is running correctly or install rust (curl https://sh.rustup.rs -sSf | sh)"
