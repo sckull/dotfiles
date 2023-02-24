@@ -13,7 +13,9 @@ sudo apt-get install -y polybar xclip
 
 # picom dependencies
 sudo apt-get install -y libxext-dev libxcb1-dev libxcb-damage0-dev libxcb-xfixes0-dev libxcb-shape0-dev libxcb-render-util0-dev libxcb-render0-dev libxcb-randr0-dev libxcb-composite0-dev libxcb-image0-dev libxcb-present-dev libxcb-xinerama0-dev libxcb-glx0-dev libpixman-1-dev libdbus-1-dev libconfig-dev libgl1-mesa-dev  libpcre2-dev  libevdev-dev uthash-dev libev-dev libx11-xcb-dev
-sudo apt-get install -y zsh
+sudo apt-get install -y zsh 
+# picom
+sudo apt-get install -y libpcre3 libpcre3-dev
 
 ##################
 # i3-gaps border #
@@ -35,8 +37,8 @@ cd $dir
 ###################
 git clone https://github.com/sdhand/picom.git && cd picom
 git submodule update --init --recursive
-meson --buildtype=release . build
-ninja -C build
+sudo meson --buildtype=release . build
+sudo ninja -C build
 sudo ninja -C build install
 cd $dir
 
@@ -57,17 +59,17 @@ pip3 install pywal
 ###############
 # Copy Config #
 ###############
-mkdir -p ~/.config
+#mkdir -p ~/.config
 cp -r .config ~/
 cp .fehbg ~/.fehbg
 cp .zshrc ~/.zshrc
 
-echo "Done! Grab some wallpaper and run pywal -i filename to set your color scheme. To have the wallpaper set on every boot edit ~.fehbg"
-echo "After reboot: Select i3 on login, run lxappearance and select arc-dark"
+
 
 ###############
 #   ohmyzsh   #
 ###############
+echo "Installing ohmyzsh, when its done, type 'exit' to install Fonts"
 ZSH_CUSTOM=$HOME/.oh-my-zsh
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 mkdir -p $ZSH_CUSTOM/themes
@@ -76,15 +78,19 @@ mv pi.zsh-theme $ZSH_CUSTOM/themes/
 ###############
 #     font    #
 ###############
-echo "Installing JetBrainMono Font .. \n"
+echo "Installing JetBrainMono Font .."
 bash -c "$(curl -fsSL https://raw.githubusercontent.com/JetBrains/JetBrainsMono/master/install_manual.sh)"
-#echo "Make sure the font 'JetBrainMono' is installed."
-#echo "If not, here you can found it: https://www.jetbrains.com/es-es/lp/mono/"
-echo "Installing Fonts from polybar-themes"
+echo "Make sure the font 'JetBrainMono' is installed."
+echo "If not, here you can found it: https://www.jetbrains.com/es-es/lp/mono/"
 
+echo "Installing Fonts from polybar-themes"
 FDIR="$HOME/.local/share/fonts"
-cp -rf $dir/fonts/* "$FDIR"
+cp -r $dir/fonts/ "$FDIR"
+fc-cache -f
 
 echo "Install themes if MATE terminal: https://github.com/HattDroid/MateTermColors"
 echo "Install themes if Gnome terminal: https://gogh-co.github.io/Gogh/"
 echo "Make sure alacritty is installed if not, check if cargo is running correctly or install rust (curl https://sh.rustup.rs -sSf | sh)"
+
+echo "Done! Grab some wallpaper and run pywal -i filename to set your color scheme. To have the wallpaper set on every boot edit ~.fehbg"
+echo "After reboot: Select i3 on login, run lxappearance and select arc-dark"
