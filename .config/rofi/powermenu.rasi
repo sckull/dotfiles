@@ -1,0 +1,58 @@
+@import "~/.config/rofi/colors.rasi"
+
+* {
+  background-color: @background;
+  text-color: @foreground;  
+  font:   "Montserrat 12";
+}
+
+#window {
+  children: [ horibox ];
+  width: 15%;
+  location: center;
+}
+
+#horibox {
+  children: [ listview ];
+}
+
+listview {
+    columns:                        1;
+    lines:                          5;
+    margin:                         11px;
+    spacing:                        11px;
+    cycle:                          true;
+    dynamic:                        true;
+    background-color:               transparent;
+    fixed-height:   true;
+}
+
+element {
+  padding: 1%;
+  margin:0px;
+  border:0px;
+  border-radius:0px;
+  background-color: transparent;
+}
+
+element.normal.normal,
+element.alternate.normal {
+  background-color: transparent;
+}
+
+element.selected.normal {
+  background-color: @accent;
+  text-color: @foreground;
+}
+
+element-text {
+    background-color:            transparent;
+    text-color:                  inherit;
+    cursor:                      inherit;
+    vertical-align:              0.5;
+    horizontal-align:            0.0;    
+}
+
+element-icon {
+    background-color:            transparent;
+}

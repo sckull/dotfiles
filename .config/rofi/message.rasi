@@ -1,0 +1,25 @@
+/* Confirm Dialog */
+
+@import "~/.config/rofi/colors.rasi"
+
+* {
+    background-color:       @background;
+    text-color:             @foreground;
+    font:   "Montserrat 11";  
+}
+
+window {
+    width:                  20%;
+    padding:                1%;    
+    background-color: @background;    
+    location:               center;
+}
+
+
+textbox {
+    padding:    1%;
+    background-color: transparent;
+}
+error-message{
+    background-color: transparent;    
+}

@@ -1,0 +1,50 @@
+/* Confirm Dialog */
+
+@import "~/.config/rofi/colors.rasi"
+
+
+* {
+    background-color:       @background;
+    text-color:             @foreground;
+	font:   "Montserrat 11"; 
+}
+
+window {
+    width:      			12%;
+    padding:    			1%;
+    
+    background-color: @background;    
+    location:               center;
+}
+
+entry {
+    expand: 				true;
+    text-color:				@foreground;
+}
+
+element { 
+    background-color:transparent;
+    border:0px;
+    border-radius:0px;
+    border-radius:0px;
+    padding: 1%;
+}
+
+inputbar {
+    font:       "Montserrat 20";
+    padding:    12px;    
+    background-color: transparent;
+}
+
+entry, element-text {
+  text-color: @foreground;
+  background-color: transparent;
+}
+
+textbox {
+    padding:    1%;
+}
+
+prompt, mainbox, case-indicator{
+    background-color: transparent;    
+}
