@@ -1,7 +1,0 @@
-polybar|warn:  Naming your configuration file 'config' is deprecated, the expected name is 'config.ini'.
-polybar|notice:  Parsing config file: /home/kali/.config/polybar/config
-polybar|notice:  Loading module 'i3' of type 'internal/i3'
-polybar|notice:  Loaded 1 modules
-polybar|notice:  Loaded font "JetBrains Mono:style=Regular:size=11" (name=JetBrains Mono, offset=3, file=/home/kali/.local/share/fonts/fonts/ttf/JetBrainsMono-Regular.ttf)
-polybar|notice:  Loaded font "Siji:pixelsize=10" (name=DejaVu Sans, offset=1, file=/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf)
-polybar|notice:  Loaded font "FontAwesome:pixelsize=10" (name=FontAwesome, offset=3, file=/usr/share/fonts/opentype/font-awesome/FontAwesome.otf)
