@@ -195,7 +195,7 @@ type = custom/script
 interval = 2
 exec = ~/.config/scripts/htb.sh
 ;format-background = #ffffff
-click-left = ~/.config/scripts/vpn-copy.sh tun1 
+click-left = ~/.config/scripts/vpn_copy.sh tun1 
 
 
 [module/tryhackme]
@@ -203,14 +203,14 @@ type = custom/script
 interval = 2
 exec = ~/.config/scripts/thm.sh
 ;foreground-background = ${colors.disabled}
-click-left = ~/.config/scripts/vpn-copy.sh tun0 
+click-left = ~/.config/scripts/vpn_copy.sh tun0 
 
 [module/eth0]
 type = custom/script
 interval = 2
 exec = ~/.config/scripts/eth0.sh
 ;format-background = ${color.shade4}
-click-left = ~/.config/scripts/vpn-copy.sh eth0 
+click-left = ~/.config/scripts/vpn_copy.sh eth0 
 
 [module/sysmenu]
 type = custom/text

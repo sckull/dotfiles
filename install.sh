@@ -13,8 +13,10 @@ dir=`pwd`
 
 echo -e "${RED} Installing programs and dependencies ... ${END}"
 # no compton
-sudo apt-get install -y arandr flameshot arc-theme feh i3blocks i3status i3 i3-wm lxappearance python3-pip rofi unclutter \ 
-						cargo papirus-icon-theme imagemagick zsh polybar xclip
+sudo apt-get install -y arandr flameshot arc-theme feh i3blocks i3status i3 i3-wm lxappearance python3-pip rofi unclutter \
+						cargo imagemagick zsh polybar xclip
+
+sudo apt-get install -y cargo
 
 # some dependencies
 sudo apt-get install -y libxcb-keysyms1-dev libpango1.0-dev  xcb libxcb-icccm4-dev libyajl-dev libev-dev libxcb-xkb-dev \
@@ -30,12 +32,18 @@ sudo apt-get install -y libxext-dev libxcb1-dev libxcb-damage0-dev libxcb-xfixes
 
 # Alacritty 
 # https://github.com/alacritty/alacritty/blob/master/INSTALL.md#cargo-installation
-echo -e "${GREEN} Installing Alacritty with cargo ... ${END}"
-sudo cargo install alacritty
+echo -e "${GREEN} Installing Alacritty with apt ... ${END}"
 # git clone https://github.com/jwilm/alacritty
 # cd alacritty
 # cargo build --release && sudo cp target/release/alacritty /usr/local/bin
 # cd $dir
+
+if ! command -v alacritty &> /dev/null
+then
+    echo -e "${RED}alacritty is not installed\n${GREEN}.. trying with cargo, it may take a few minutes ..${END}"
+	sudo cargo install alacritty
+fi
+sleep 2
 
 # picom >> compton 
 echo -e "${GREEN} Installing picom ... ${END}"
@@ -63,25 +71,25 @@ pip3 install pywal
 sleep 2
 
 # ohmyzsh
-echo -e "${GREEN} Installing ohmyzsh, when its done, type 'exit' to continue ... ${END}"
-wget -qO- https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh | sh &>/dev/null
-
-if [ -d ~/.oh-my-zsh ]; then	
-	echo -e "${GREEN} oh-my-zsh installed. ${END}"
- else 	
- 	echo -e "${RED} oh-my-zsh is not installed, check https://ohmyz.sh ${END}"
+echo -e "${GREEN} Installing ohmyzsh ... ${END}"
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended &>/dev/null
+if [ -d ~/.oh-my-zsh ]; then
+        echo -e "${GREEN} oh-my-zsh installed. ${END}"
+ else 
+        echo -e "${RED} oh-my-zsh is not installed, check https://ohmyz.sh ${END}"
 fi
+
 
 ###############
 #     font    #
 ###############
 echo -e "${GREEN} Installing fonts ... ${END}"
-
+mkdir -p ~/.local/share/fonts
 echo -e "${GREEN} Font: JetBrainMono .. ${END}"
 bash -c "$(curl -fsSL https://raw.githubusercontent.com/JetBrains/JetBrainsMono/master/install_manual.sh)"
 
 echo -e "${GREEN} Font: polybar-themes, Iosevka Nerd Font, Material Design and Montserrat .. ${END}"
-FDIR="$HOME/.local/share/fonts"
+FDIR="~/.local/share/fonts"
 cp -r $dir/fonts/ "$FDIR"
 sleep 2
 echo -e "${GREEN} Building fonts cache .. ${END}"
@@ -89,11 +97,21 @@ fc-cache -f || die "Unable to build fonts cache"
 sleep 2
 # config files
 echo -e "${GREEN} Copying config files to $HOME ... ${END}"
-#mkdir -p ~/.config
+
+mkdir -p ~/.config/alacritty
+mkdir -p ~/.config/compton
+mkdir -p ~/.config/dunst
+mkdir -p ~/.config/i3
+mkdir -p ~/.config/polybar
+mkdir -p ~/.config/rofi
+mkdir -p ~/.config/scripts
+mkdir -p ~/.config/wall
+mkdir -p ~/.oh-my-zsh/themes/
+
 cp -rf .config ~/
-cp -f .fehbg ~/.fehbg
-cp -f .zshrc ~/.zshrc
-cp -f pi.zsh-theme ~/.oh-my-zsh/themes/
+cp .fehbg ~/.fehbg
+cp .zshrc ~/.zshrc
+cp pi.zsh-theme ~/.oh-my-zsh/themes/
 
 # echo -e "${GREEN} Themes for MATE terminal https://github.com/HattDroid/MateTermColors ${END}"
 # echo -e "${GREEN} Themes for Gnome terminal https://gogh-co.github.io/Gogh/ ${END}"
