@@ -86,7 +86,7 @@ fi
 #     font    #
 ###############
 echo -e "${GREEN}Installing fonts ... ${END}"
-echo -e "${GREEN}Font: JetBrainMono .. ${END}"
+echo -e "${GREEN}Font: JetBrainsMono .. ${END}"
 FDIR="$HOME/.local/share/fonts"
 bash -c "$(curl -fsSL https://raw.githubusercontent.com/JetBrains/JetBrainsMono/master/install_manual.sh)"
 mkdir -p $FDIR
@@ -112,6 +112,7 @@ mkdir -p ~/.oh-my-zsh/themes/
 cp -rf .config ~/
 cp .fehbg ~/.fehbg
 cp .zshrc ~/.zshrc
+cp .tmux.conf ~/.tmux.conf
 cp pi.zsh-theme ~/.oh-my-zsh/themes/
 
 # echo -e "${GREEN} Themes for MATE terminal https://github.com/HattDroid/MateTermColors ${END}"

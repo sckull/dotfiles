@@ -1,5 +1,4 @@
-# Setup
-
+# Kali
 ## Info
 - Bar: Polybar
 - OS: Kali Linux
@@ -18,6 +17,8 @@
 ## Installation
 Run `install.sh` as a non-root user.
 ```bash
+git clone https://github.com/sckull/dotfiles
+cd dotfiles/kali
 ./install.sh
 ```
 After running script:
