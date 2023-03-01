@@ -16,7 +16,7 @@ echo -e "${RED}Installing programs and dependencies ... ${END}"
 sudo apt-get install -y arandr flameshot arc-theme feh i3blocks i3status i3 i3-wm lxappearance python3-pip rofi unclutter \
 						cargo imagemagick zsh polybar xclip
 
-sudo apt-get install -y cargo
+sudo apt-get install -y cargo meson ninja
 
 # some dependencies
 sudo apt-get install -y libxcb-keysyms1-dev libpango1.0-dev  xcb libxcb-icccm4-dev libyajl-dev libev-dev libxcb-xkb-dev \
@@ -87,10 +87,10 @@ fi
 ###############
 echo -e "${GREEN}Installing fonts ... ${END}"
 echo -e "${GREEN}Font: JetBrainMono .. ${END}"
-mkdir -p ~/.local/share/fonts
+FDIR="$HOME/.local/share/fonts"
 bash -c "$(curl -fsSL https://raw.githubusercontent.com/JetBrains/JetBrainsMono/master/install_manual.sh)"
+mkdir -p $FDIR
 echo -e "${GREEN}Font: polybar-themes, Iosevka Nerd Font, Material Design and Montserrat .. ${END}"
-FDIR="~/.local/share/fonts"
 cp -rf $dir/fonts/ "$FDIR"
 sleep 2
 echo -e "${GREEN}Building fonts cache .. ${END}"
