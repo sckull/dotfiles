@@ -181,7 +181,7 @@
 # we are using normal urgency
 # colors as #rgba
 [urgency_normal]
-    background = "#00000060"
+    background = "#00000080"
     foreground = "#ffffff"
     frame_color = "#ffffff50"
     timeout = 5

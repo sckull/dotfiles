@@ -152,8 +152,8 @@ bindsym $mod+n exec --no-startup-id flash_window
 #   Startup
 #********************************************************************************
 # wallpaper
-exec --no-startup-id feh --bg-scale ~/.config/wall/e.jpg
-#exec --no-startup-id exec ~/.fehbg
+# exec --no-startup-id feh --bg-fill ~/.config/wall/e.jpg <--- static
+exec_always --no-startup-id sh ~/.fehbg
 #exec_always --no-startup-id compton --blur-background
 #exec_always compton --backend glx --blur-background
 

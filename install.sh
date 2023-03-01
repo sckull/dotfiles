@@ -1,9 +1,9 @@
 #!/bin/bash
 
 # colors
-RED="\e[31m"
-GREEN="\e[32m"
-END="\e[0m"
+RED="\e[31m\e[1m"
+GREEN="\e[32m\e[1m"
+END="\e[21m\e[0m"
 
 # vars
 dir=`pwd`
@@ -76,9 +76,9 @@ sleep 2
 echo -e "${GREEN}Installing ohmyzsh ... ${END}"
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended &>/dev/null
 if [ -d ~/.oh-my-zsh ]; then
-        echo -e "${GREEN} oh-my-zsh installed. ${END}"
+        echo -e "${GREEN}oh-my-zsh installed. ${END}"
  else 
-        echo -e "${RED} oh-my-zsh is not installed, check https://ohmyz.sh ${END}"
+        echo -e "${RED}oh-my-zsh is not installed, check https://ohmyz.sh ${END}"
 fi
 
 
@@ -116,11 +116,6 @@ cp pi.zsh-theme ~/.oh-my-zsh/themes/
 
 # echo -e "${GREEN} Themes for MATE terminal https://github.com/HattDroid/MateTermColors ${END}"
 # echo -e "${GREEN} Themes for Gnome terminal https://gogh-co.github.io/Gogh/ ${END}"
-echo -e "${GREEN}Terminal: make sure 'alacritty' is installed if not, try to install with cargo or apt"
-echo -e "Wallpaper: set a wallpaper by editing ~.fehbg"
-echo -e "Colorscheme: grab some wallpaper and run pywal -i filename to set your color scheme then add to .zshrc : (cat ~/.cache/wal/sequences &)"
-echo -e "i3: keyboard is configured to layout latam, add your layout at the end of i3/config"
-echo -e "Polybar: left clic to copy IP, edit polybar/config and script/[vpn].sh to set the correct interface in hackthebox, tryhackme and eth0"
-echo -e "Icons: manually install https://github.com/vinceliuice/McMojave-circle "
+echo -e "${GREEN}Terminal: make sure 'alacritty' is installed if not try to install it with cargo"
 echo -e "After reboot: Select i3 on login. ${END}"
 sleep 1
