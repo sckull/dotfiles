@@ -11,7 +11,7 @@ dir=`pwd`
 # sudo apt-get install -y arandr flameshot arc-theme feh i3blocks i3status i3 i3-wm lxappearance python3-pip rofi unclutter cargo compton papirus-icon-theme imagemagick
 # sudo apt-get install -y arandr flameshot arc-theme feh i3blocks i3status lxappearance python3-pip rofi unclutter cargo compton papirus-icon-theme imagemagick
 
-echo -e "${RED} Installing programs and dependencies ... ${END}"
+echo -e "${RED}Installing programs and dependencies ... ${END}"
 # no compton
 sudo apt-get install -y arandr flameshot arc-theme feh i3blocks i3status i3 i3-wm lxappearance python3-pip rofi unclutter \
 						cargo imagemagick zsh polybar xclip
@@ -32,11 +32,13 @@ sudo apt-get install -y libxext-dev libxcb1-dev libxcb-damage0-dev libxcb-xfixes
 
 # Alacritty 
 # https://github.com/alacritty/alacritty/blob/master/INSTALL.md#cargo-installation
-echo -e "${GREEN} Installing Alacritty with apt ... ${END}"
+echo -e "${GREEN}Installing Alacritty with apt ... ${END}"
 # git clone https://github.com/jwilm/alacritty
 # cd alacritty
 # cargo build --release && sudo cp target/release/alacritty /usr/local/bin
 # cd $dir
+
+sudo apt install -y alacritty
 
 if ! command -v alacritty &> /dev/null
 then
@@ -46,7 +48,7 @@ fi
 sleep 2
 
 # picom >> compton 
-echo -e "${GREEN} Installing picom ... ${END}"
+echo -e "${GREEN}Installing picom ... ${END}"
 git clone https://github.com/sdhand/picom.git && cd picom
 git submodule update --init --recursive
 sudo meson --buildtype=release . build
@@ -56,7 +58,7 @@ cd $dir
 
 
 # i3-gaps
-echo -e "${GREEN} Installing i3-gaps ... ${END}"
+echo -e "${GREEN}Installing i3-gaps ... ${END}"
 
 git clone https://www.github.com/Airblader/i3 i3-gaps
 cd i3-gaps && mkdir -p build && cd build && meson ..
@@ -65,13 +67,13 @@ sudo ninja install
 cd $dir
 
 # pywal 
-echo -e "${GREEN} Installing pywal ... ${END}"
+echo -e "${GREEN}Installing pywal ... ${END}"
 
 pip3 install pywal
 sleep 2
 
 # ohmyzsh
-echo -e "${GREEN} Installing ohmyzsh ... ${END}"
+echo -e "${GREEN}Installing ohmyzsh ... ${END}"
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended &>/dev/null
 if [ -d ~/.oh-my-zsh ]; then
         echo -e "${GREEN} oh-my-zsh installed. ${END}"
@@ -83,20 +85,19 @@ fi
 ###############
 #     font    #
 ###############
-echo -e "${GREEN} Installing fonts ... ${END}"
+echo -e "${GREEN}Installing fonts ... ${END}"
+echo -e "${GREEN}Font: JetBrainMono .. ${END}"
 mkdir -p ~/.local/share/fonts
-echo -e "${GREEN} Font: JetBrainMono .. ${END}"
 bash -c "$(curl -fsSL https://raw.githubusercontent.com/JetBrains/JetBrainsMono/master/install_manual.sh)"
-
-echo -e "${GREEN} Font: polybar-themes, Iosevka Nerd Font, Material Design and Montserrat .. ${END}"
+echo -e "${GREEN}Font: polybar-themes, Iosevka Nerd Font, Material Design and Montserrat .. ${END}"
 FDIR="~/.local/share/fonts"
-cp -r $dir/fonts/ "$FDIR"
+cp -rf $dir/fonts/ "$FDIR"
 sleep 2
-echo -e "${GREEN} Building fonts cache .. ${END}"
+echo -e "${GREEN}Building fonts cache .. ${END}"
 fc-cache -f || die "Unable to build fonts cache"
 sleep 2
 # config files
-echo -e "${GREEN} Copying config files to $HOME ... ${END}"
+echo -e "${GREEN}Copying config files to $HOME ... ${END}"
 
 mkdir -p ~/.config/alacritty
 mkdir -p ~/.config/compton
