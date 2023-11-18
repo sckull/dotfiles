@@ -49,6 +49,9 @@ wm-restack = i3
 ;radius-top = 0.0
 ;radius-bottom = 10.0
 
+radius-top = 10.0
+radius-bottom = 10.0
+
 [module/i3]
 type = internal/i3
 strip-wsnumbers = true
@@ -106,6 +109,9 @@ modules-right = tryhackme
 override-redirect=true 
 wm-restack=i3
 
+radius-top = 10.0
+radius-bottom = 10.0
+
 [bar/fourth]
 width=40.5%
 height=30px
@@ -136,7 +142,7 @@ tray-background = ${colors.bg}
 override-redirect=true
 wm-restack=i3
 ;radius=5
-radius-top = 0.0
+radius-top = 10.0
 radius-bottom = 10.0
 enable-ipc = true
 
