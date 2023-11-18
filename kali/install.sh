@@ -16,7 +16,7 @@ echo -e "${RED}Installing programs and dependencies ... ${END}"
 sudo apt-get install -y arandr flameshot arc-theme feh i3blocks i3status i3 i3-wm lxappearance python3-pip rofi unclutter \
 						cargo imagemagick zsh polybar xclip
 
-sudo apt-get install -y cargo meson ninja
+sudo apt-get install -y cargo meson ninja picom
 
 # some dependencies
 sudo apt-get install -y libxcb-keysyms1-dev libpango1.0-dev  xcb libxcb-icccm4-dev libyajl-dev libev-dev libxcb-xkb-dev \
@@ -48,13 +48,14 @@ fi
 sleep 2
 
 # picom >> compton 
-echo -e "${GREEN}Installing picom ... ${END}"
-git clone https://github.com/sdhand/picom.git && cd picom
-git submodule update --init --recursive
-sudo meson --buildtype=release . build
-sudo ninja -C build
-sudo ninja -C build install
-cd $dir
+echo -e "${GREEN}Check version of picom = v10 ${END}"
+
+# git clone https://github.com/sdhand/picom.git && cd picom
+# git submodule update --init --recursive
+# sudo meson --buildtype=release . build
+# sudo ninja -C build
+# sudo ninja -C build install
+# cd $dir
 
 
 # i3-gaps
