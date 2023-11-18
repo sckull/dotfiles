@@ -158,7 +158,8 @@ exec_always --no-startup-id sh ~/.fehbg
 #exec_always compton --backend glx --blur-background
 
 #picom
-exec_always --no-startup-id picom -b --config ~/.config/compton/compton.conf --corner-radius 6
+# exec_always --no-startup-id picom -b --config ~/.config/compton/compton.conf --corner-radius 6
+exec_always --no-startup-id /usr/bin/picom --no-use-damage -b --corner-radius 6
 
 # rofi
 bindsym $mod+d exec rofi -show drun
