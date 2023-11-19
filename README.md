@@ -5,7 +5,7 @@
 - WM: [i3-gaps](https://github.com/Airblader/i3) fork (repository no longer active read-only, use i3 v4.22).
 - Terminal: Alacritty
 - Fonts: JetBrains, Montserrat, Material Design, Iosevka (Nerd Fonts) ...
-- Compositor: [Picom](https://github.com/sdhand/picom)
+- Compositor: Picom v10
 - Icons: [McMojave Circle](https://github.com/vinceliuice/McMojave-circle)
 - Launcher: Rofi 1.7.3
 
