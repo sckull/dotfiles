@@ -2,7 +2,7 @@
 ## Info
 - Bar: Polybar
 - OS: Kali Linux
-- WM: [i3-gaps](https://github.com/Airblader/i3) fork (repository no longer active read-only, use i3 v4.22).
+- WM: [i3-gaps](https://github.com/Airblader/i3) fork (repository no longer active, use i3 v4.22).
 - Terminal: Alacritty
 - Fonts: JetBrains, Montserrat, Material Design, Iosevka (Nerd Fonts) ...
 - Compositor: Picom v10
