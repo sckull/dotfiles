@@ -2,7 +2,7 @@
 ## Info
 - Bar: Polybar
 - OS: Kali Linux
-- WM: [i3-gaps](https://github.com/Airblader/i3) fork (repository no longer active, use i3 v4.22).
+- WM: i3 v4.22.
 - Terminal: Alacritty
 - Fonts: JetBrains, Montserrat, Material Design, Iosevka (Nerd Fonts) ...
 - Compositor: Picom v10
@@ -19,6 +19,7 @@ Run `install.sh` as a non-root user.
 ```bash
 git clone https://github.com/sckull/dotfiles
 cd dotfiles/kali
+chmod +x install.sh
 ./install.sh
 ```
 After running script:
