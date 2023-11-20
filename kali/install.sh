@@ -8,15 +8,11 @@ END="\e[21m\e[0m"
 # vars
 dir=`pwd`
 
-# sudo apt-get install -y arandr flameshot arc-theme feh i3blocks i3status i3 i3-wm lxappearance python3-pip rofi unclutter cargo compton papirus-icon-theme imagemagick
-# sudo apt-get install -y arandr flameshot arc-theme feh i3blocks i3status lxappearance python3-pip rofi unclutter cargo compton papirus-icon-theme imagemagick
-
 echo -e "${RED}Installing programs and dependencies ... ${END}"
-# no compton
-sudo apt-get install -y arandr flameshot arc-theme feh i3blocks i3status i3 i3-wm lxappearance python3-pip rofi unclutter \
-						cargo imagemagick zsh polybar xclip
 
-sudo apt-get install -y cargo meson ninja picom
+sudo apt-get install arandr flameshot arc-theme feh i3blocks i3status i3 i3-wm lxappearance python3-pip rofi unclutter cargo imagemagick zsh polybar xclip -y
+
+sudo apt-get install meson ninja picom -y
 
 # some dependencies
 sudo apt-get install -y libxcb-keysyms1-dev libpango1.0-dev  xcb libxcb-icccm4-dev libyajl-dev libev-dev libxcb-xkb-dev \
@@ -30,13 +26,9 @@ sudo apt-get install -y libxext-dev libxcb1-dev libxcb-damage0-dev libxcb-xfixes
 						libpcre2-dev libevdev-dev uthash-dev libev-dev libx11-xcb-dev libpcre3 libpcre3-dev
 
 
-# Alacritty 
+# Alacritty
 # https://github.com/alacritty/alacritty/blob/master/INSTALL.md#cargo-installation
 echo -e "${GREEN}Installing Alacritty with apt ... ${END}"
-# git clone https://github.com/jwilm/alacritty
-# cd alacritty
-# cargo build --release && sudo cp target/release/alacritty /usr/local/bin
-# cd $dir
 
 sudo apt install -y alacritty
 
@@ -47,27 +39,13 @@ then
 fi
 sleep 2
 
-# picom >> compton 
+# picom 
 echo -e "${GREEN}Check version of picom = v10 ${END}"
 
-# git clone https://github.com/sdhand/picom.git && cd picom
-# git submodule update --init --recursive
-# sudo meson --buildtype=release . build
-# sudo ninja -C build
-# sudo ninja -C build install
-# cd $dir
+# i3
+echo -e "${GREEN}Check version of i3 v4.22 ... ${END}"
 
-
-# i3-gaps
-echo -e "${GREEN}Installing i3-gaps ... ${END}"
-
-git clone https://www.github.com/Airblader/i3 i3-gaps
-cd i3-gaps && mkdir -p build && cd build && meson ..
-ninja
-sudo ninja install
-cd $dir
-
-# pywal 
+# pywal
 echo -e "${GREEN}Installing pywal ... ${END}"
 
 pip3 install pywal
@@ -78,7 +56,7 @@ echo -e "${GREEN}Installing ohmyzsh ... ${END}"
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended &>/dev/null
 if [ -d ~/.oh-my-zsh ]; then
         echo -e "${GREEN}oh-my-zsh installed. ${END}"
- else 
+ else
         echo -e "${RED}oh-my-zsh is not installed, check https://ohmyz.sh ${END}"
 fi
 
