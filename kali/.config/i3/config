@@ -220,4 +220,4 @@ exec --no-startup-id dunst -conf ~/.config/dunst/dunstrc
 # https://github.com/reedrw/dotfiles/blob/master/config/polybar/config
 
 # layout - latam
-exec "setxkbmap -layout latam"
+# exec "setxkbmap -layout latam"
