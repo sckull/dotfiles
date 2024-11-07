@@ -12,7 +12,7 @@ echo -e "${RED}Installing programs and dependencies ... ${END}"
 
 sudo apt-get install arandr flameshot arc-theme feh i3blocks i3status i3 i3-wm lxappearance python3-pip rofi unclutter cargo imagemagick zsh polybar xclip -y
 
-sudo apt-get install meson ninja picom -y
+
 
 # some dependencies
 sudo apt-get install -y libxcb-keysyms1-dev libpango1.0-dev  xcb libxcb-icccm4-dev libyajl-dev libev-dev libxcb-xkb-dev \
@@ -25,31 +25,34 @@ sudo apt-get install -y libxext-dev libxcb1-dev libxcb-damage0-dev libxcb-xfixes
 						libxcb-xinerama0-dev libxcb-glx0-dev libpixman-1-dev libdbus-1-dev libconfig-dev libgl1-mesa-dev \
 						libpcre2-dev libevdev-dev uthash-dev libev-dev libx11-xcb-dev libpcre3 libpcre3-dev
 
+sudo apt-get install meson ninja lsd -y
 
-# Alacritty
-# https://github.com/alacritty/alacritty/blob/master/INSTALL.md#cargo-installation
-echo -e "${GREEN}Installing Alacritty with apt ... ${END}"
+sudo apt install -y kitty feh scrot scrub rofi xclip bat locate ranger neofetch wmname acpi bspwm sxhkd imagemagick cmatrix zenity
 
-sudo apt install -y alacritty
 
-if ! command -v alacritty &> /dev/null
-then
-    echo -e "${RED}alacritty is not installed\n${GREEN}.. trying with cargo, it may take a few minutes ..${END}"
-	sudo cargo install alacritty
-fi
-sleep 2
+# picom >> compton 
+echo -e "${GREEN}Installing picom ... ${END}"
+git clone https://github.com/ibhagwan/picom.git && cd picom
+git submodule update --init --recursive
+sudo meson --buildtype=release . build
+sudo ninja -C build
+sudo ninja -C build install
+cd $dir
 
-# picom 
-echo -e "${GREEN}Check version of picom = v10 ${END}"
+#sudo apt install -y alacritty
 
-# i3
-echo -e "${GREEN}Check version of i3 v4.22 ... ${END}"
+#if ! command -v alacritty &> /dev/null
+#then
+#    echo -e "${RED}alacritty is not installed\n${GREEN}.. trying with cargo, it may take a few minutes ..${END}"
+#	sudo cargo install alacritty
+#fi
+#sleep 1
 
-# pywal
-echo -e "${GREEN}Installing pywal ... ${END}"
+# Kitty
+# sudo apt install -y kitty feh scrot scrub rofi xclip bat locate ranger neofetch wmname acpi bspwm sxhkd imagemagick cmatrix zenity
 
 pip3 install pywal
-sleep 2
+sleep 1
 
 # ohmyzsh
 echo -e "${GREEN}Installing ohmyzsh ... ${END}"
@@ -61,41 +64,66 @@ if [ -d ~/.oh-my-zsh ]; then
 fi
 
 
+# p10k
+git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ~/.powerlevel10k
+echo 'source ~/.powerlevel10k/powerlevel10k.zsh-theme' >>~/.zshrc
+
+# zsh-syntax-highlighting
+sudo apt install -y zsh-syntax-highlighting zsh-autosuggestions
+sudo mkdir /usr/share/zsh-sudo
+cd /usr/share/zsh-sudo
+sudo wget https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/plugins/sudo/sudo.plugin.zsh
+
+# ROOT zshrc
+sudo ln -s -fv ~/.zshrc /root/.zshrc
+
+
+
 ###############
 #     font    #
 ###############
-echo -e "${GREEN}Installing fonts ... ${END}"
-echo -e "${GREEN}Font: JetBrainsMono .. ${END}"
 FDIR="$HOME/.local/share/fonts"
 bash -c "$(curl -fsSL https://raw.githubusercontent.com/JetBrains/JetBrainsMono/master/install_manual.sh)"
 mkdir -p $FDIR
-echo -e "${GREEN}Font: polybar-themes, Iosevka Nerd Font, Material Design and Montserrat .. ${END}"
+
 cp -rf $dir/fonts/ "$FDIR"
-sleep 2
+
+# Instalamos las HackNerdFonts
+sudo cp -v $dir/fonts/HNF/* /usr/local/share/fonts/
+
+# Instalando Fuentes de Polybar
+sudo cp -v $dir/fonts/polybarfonts/* /usr/share/fonts/truetype/
+
 echo -e "${GREEN}Building fonts cache .. ${END}"
 fc-cache -f || die "Unable to build fonts cache"
 sleep 2
+
+
 # config files
 echo -e "${GREEN}Copying config files to $HOME ... ${END}"
 
-mkdir -p ~/.config/alacritty
-mkdir -p ~/.config/compton
+# mkdir -p ~/.config/alacritty
+mkdir -p ~/.config/kitty
+mkdir -p ~/.config/picom
 mkdir -p ~/.config/dunst
-mkdir -p ~/.config/i3
+mkdir -p ~/.config/bspwm
 mkdir -p ~/.config/polybar
 mkdir -p ~/.config/rofi
 mkdir -p ~/.config/scripts
 mkdir -p ~/.config/wall
+mkdir -p ~/.config/sxhkd
 mkdir -p ~/.oh-my-zsh/themes/
 
-cp -rf .config ~/
-cp .fehbg ~/.fehbg
-cp .zshrc ~/.zshrc
-cp .tmux.conf ~/.tmux.conf
-cp pi.zsh-theme ~/.oh-my-zsh/themes/
+# chmod sxhkdrc bspwmrc
+cp -rf $dir/.config ~/
+cp $dir/.fehbg ~/.fehbg
+cp $dir/.tmux.conf ~/.tmux.conf
 
-# echo -e "${GREEN} Themes for MATE terminal https://github.com/HattDroid/MateTermColors ${END}"
-# echo -e "${GREEN} Themes for Gnome terminal https://gogh-co.github.io/Gogh/ ${END}"
-echo -e "${GREEN}Terminal: make sure 'alacritty' is installed if not try to install it with cargo"
-echo -e "After reboot: Select i3 on login. ${END}"
-sleep 1
+# ZSHRC & P10K
+rm -rf ~/.zshrc
+cp -v $dir/.zshrc ~/.zshrc
+
+cp -v $dir/.p10k.zsh ~/.p10k.zsh
+sudo cp -v $dir/.p10k.zsh /root/.p10k.zsh
+
+# Asignamos Permisos a los Scritps
