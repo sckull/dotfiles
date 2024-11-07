@@ -28,4 +28,11 @@ alias httphere="sudo python3 -m http.server 80 --directory $1"
 alias htb_vpn="sudo openvpn --dev tun1 --config ~/htb/sckull.ovpn"
 alias htb_arena="sudo openvpn --dev tun1 --config ~/htb/arena.ovpn"
 alias thm_vpn="sudo openvpn --dev tun0 --config ~/thm/sckull.ovpn"
+
+alias ll='lsd -lh --group-dirs=first'
+alias la='lsd -a --group-dirs=first'
+alias l='lsd --group-dirs=first'
+alias lla='lsd -lha --group-dirs=first'
+alias ls='lsd --group-dirs=first'
+
 source ~/.powerlevel10k/powerlevel10k.zsh-theme

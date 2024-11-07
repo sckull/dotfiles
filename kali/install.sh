@@ -10,9 +10,10 @@ dir=`pwd`
 
 echo -e "${RED}Installing programs and dependencies ... ${END}"
 
-sudo apt-get install arandr flameshot arc-theme feh i3blocks i3status i3 i3-wm lxappearance python3-pip rofi unclutter cargo imagemagick zsh polybar xclip -y
+sudo apt-get -y update 
 
-
+sudo apt-get install -y arandr flameshot arc-theme feh i3blocks i3status i3 i3-wm lxappearance python3-pip rofi unclutter \
+						cargo imagemagick zsh polybar xclip
 
 # some dependencies
 sudo apt-get install -y libxcb-keysyms1-dev libpango1.0-dev  xcb libxcb-icccm4-dev libyajl-dev libev-dev libxcb-xkb-dev \
@@ -25,19 +26,11 @@ sudo apt-get install -y libxext-dev libxcb1-dev libxcb-damage0-dev libxcb-xfixes
 						libxcb-xinerama0-dev libxcb-glx0-dev libpixman-1-dev libdbus-1-dev libconfig-dev libgl1-mesa-dev \
 						libpcre2-dev libevdev-dev uthash-dev libev-dev libx11-xcb-dev libpcre3 libpcre3-dev
 
-sudo apt-get install meson ninja lsd -y
+sudo apt-get install -y meson ninja lsd picom 
 
-sudo apt install -y kitty feh scrot scrub rofi xclip bat locate ranger neofetch wmname acpi bspwm sxhkd imagemagick cmatrix zenity
+sudo apt install -y kitty scrot scrub bat locate ranger neofetch wmname acpi bspwm sxhkd cmatrix zenity
 
 
-# picom >> compton 
-echo -e "${GREEN}Installing picom ... ${END}"
-git clone https://github.com/ibhagwan/picom.git && cd picom
-git submodule update --init --recursive
-sudo meson --buildtype=release . build
-sudo ninja -C build
-sudo ninja -C build install
-cd $dir
 
 #sudo apt install -y alacritty
 
@@ -48,10 +41,7 @@ cd $dir
 #fi
 #sleep 1
 
-# Kitty
-# sudo apt install -y kitty feh scrot scrub rofi xclip bat locate ranger neofetch wmname acpi bspwm sxhkd imagemagick cmatrix zenity
-
-pip3 install pywal
+pip3 install pywal --break-system-packages
 sleep 1
 
 # ohmyzsh
@@ -76,8 +66,6 @@ sudo wget https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/plugins/sudo/
 
 # ROOT zshrc
 sudo ln -s -fv ~/.zshrc /root/.zshrc
-
-
 
 ###############
 #     font    #
