@@ -42,7 +42,7 @@ bspc config focus_follows_pointer true
 
 
 # WALLPAPER
-feh --bg-fill ~/.config/wall/lr8.png
+feh --bg-fill ~/.config/wall/c.jpg
 
 # POLYBAR
 ~/.config/polybar/launch.sh
@@ -51,6 +51,6 @@ feh --bg-fill ~/.config/wall/lr8.png
 bspc config focus_follows_pointer true
 
 # PICOM
-picom --no-use-damage -b --corner-radius 6 &
+picom -b --config ~/.config/picom/comptom.conf &
 bspc config border_width 0.2
 xsetroot -cursor_name left_ptr &

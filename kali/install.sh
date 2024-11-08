@@ -10,23 +10,23 @@ dir=`pwd`
 
 echo -e "${RED}Installing programs and dependencies ... ${END}"
 
-sudo apt-get -y update 
+sudo apt -y update 
 
-sudo apt-get install -y arandr flameshot arc-theme feh i3blocks i3status i3 i3-wm lxappearance python3-pip rofi unclutter \
+sudo apt install -y arandr flameshot arc-theme feh i3blocks i3status i3 i3-wm lxappearance python3-pip rofi unclutter \
 						cargo imagemagick zsh polybar xclip
 
 # some dependencies
-sudo apt-get install -y libxcb-keysyms1-dev libpango1.0-dev  xcb libxcb-icccm4-dev libyajl-dev libev-dev libxcb-xkb-dev \
+sudo apt install -y libxcb-keysyms1-dev libpango1.0-dev  xcb libxcb-icccm4-dev libyajl-dev libev-dev libxcb-xkb-dev \
 						libxcb-cursor-dev libxkbcommon-dev libxcb-xinerama0-dev libxkbcommon-x11-dev libstartup-notification0-dev \
 						libxcb-randr0-dev libxcb-xrm0 libxcb-xrm-dev autoconf meson
 
 # picom dependencies
-sudo apt-get install -y libxext-dev libxcb1-dev libxcb-damage0-dev libxcb-xfixes0-dev libxcb-shape0-dev libxcb-render-util0-dev \
+sudo apt install -y libxext-dev libxcb1-dev libxcb-damage0-dev libxcb-xfixes0-dev libxcb-shape0-dev libxcb-render-util0-dev \
 						libxcb-render0-dev libxcb-randr0-dev libxcb-composite0-dev libxcb-image0-dev libxcb-present-dev \
 						libxcb-xinerama0-dev libxcb-glx0-dev libpixman-1-dev libdbus-1-dev libconfig-dev libgl1-mesa-dev \
 						libpcre2-dev libevdev-dev uthash-dev libev-dev libx11-xcb-dev libpcre3 libpcre3-dev
 
-sudo apt-get install -y meson ninja lsd picom 
+sudo apt install -y meson ninja-build lsd picom 
 
 sudo apt install -y kitty scrot scrub bat locate ranger neofetch wmname acpi bspwm sxhkd cmatrix zenity
 
@@ -114,4 +114,5 @@ cp -v $dir/.zshrc ~/.zshrc
 cp -v $dir/.p10k.zsh ~/.p10k.zsh
 sudo cp -v $dir/.p10k.zsh /root/.p10k.zsh
 
-# Asignamos Permisos a los Scritps
+# If vmware
+# sudo apt install mesa-utils
