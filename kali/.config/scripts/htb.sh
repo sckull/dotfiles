@@ -5,5 +5,5 @@ IFACE=$(/usr/sbin/ifconfig | grep tun1 | awk '{print $1}' | tr -d ':')
 if [ "$IFACE" = "tun1" ]; then
 	echo "%{F#1bbf3e} %{F#ffffff}$(/usr/sbin/ifconfig tun1 | grep "inet " | awk '{print $2}')%{u-}"
 else
-	echo "%{F#ff0055} Disconnected %{u-}"
+	echo "%{F#ff0055}%{u-} %{F#ffffff}Disconnected%{u-}"
 fi

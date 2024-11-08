@@ -7,8 +7,8 @@ pgrep -x sxhkd > /dev/null || sxhkd &
 
 bspc monitor -d I II III IV V
 
-CURRENT_BORDER='2'
-CURRENT_GAP='19'
+CURRENT_BORDER='1.4'
+CURRENT_GAP='11'
 CURRENT_SRATIO='1.4'
 
 #bspc config border_width         2
@@ -42,7 +42,7 @@ bspc config focus_follows_pointer true
 
 
 # WALLPAPER
-feh --bg-fill ~/.config/wall/4.jpg
+feh --bg-fill ~/.config/wall/lr8.png
 
 # POLYBAR
 ~/.config/polybar/launch.sh

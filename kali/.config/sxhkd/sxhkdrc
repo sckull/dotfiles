@@ -133,7 +133,7 @@ super + alt + {Left,Down,Up,Right}
 # Custom Launchers App #
 ########################
 
-
+# Firefox
 # BurpSuite
 super + shift + b
 	burpsuite
