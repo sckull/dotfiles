@@ -51,6 +51,6 @@ feh --bg-fill ~/.config/wall/c.jpg
 bspc config focus_follows_pointer true
 
 # PICOM
-picom -b --config ~/.config/picom/comptom.conf &
+picom --no-use-damage -b --corner-radius 6 --config ~/.config/picom/compton.conf &
 bspc config border_width 0.2
 xsetroot -cursor_name left_ptr &
