@@ -12,7 +12,7 @@ echo -e "${RED}Installing programs and dependencies ... ${END}"
 
 sudo apt -y update 
 
-sudo apt install -y arandr flameshot arc-theme feh i3blocks i3status i3 i3-wm lxappearance python3-pip rofi unclutter \
+sudo apt install -y arandr flameshot arc-theme feh lxappearance python3-pip rofi unclutter \
 						cargo imagemagick zsh polybar xclip
 
 # some dependencies
@@ -28,18 +28,9 @@ sudo apt install -y libxext-dev libxcb1-dev libxcb-damage0-dev libxcb-xfixes0-de
 
 sudo apt install -y meson ninja-build lsd picom 
 
-sudo apt install -y kitty scrot scrub bat locate ranger neofetch wmname acpi bspwm sxhkd cmatrix zenity
+sudo apt install -y kitty scrot scrub bat locate ranger wmname acpi bspwm sxhkd cmatrix zenity
 
 
-
-#sudo apt install -y alacritty
-
-#if ! command -v alacritty &> /dev/null
-#then
-#    echo -e "${RED}alacritty is not installed\n${GREEN}.. trying with cargo, it may take a few minutes ..${END}"
-#	sudo cargo install alacritty
-#fi
-#sleep 1
 
 pip3 install pywal --break-system-packages
 sleep 1
@@ -50,7 +41,7 @@ sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/too
 if [ -d ~/.oh-my-zsh ]; then
         echo -e "${GREEN}oh-my-zsh installed. ${END}"
  else
-        echo -e "${RED}oh-my-zsh is not installed, check https://ohmyz.sh ${END}"
+        echo -e "${RED}oh-my-zsh is not installed, check docs https://ohmyz.sh ${END}"
 fi
 
 
@@ -76,10 +67,10 @@ mkdir -p $FDIR
 
 cp -rf $dir/fonts/ "$FDIR"
 
-# Instalamos las HackNerdFonts
+# HackNerdFonts
 sudo cp -v $dir/fonts/HNF/* /usr/local/share/fonts/
 
-# Instalando Fuentes de Polybar
+# Fuentes de Polybar
 sudo cp -v $dir/fonts/polybarfonts/* /usr/share/fonts/truetype/
 
 echo -e "${GREEN}Building fonts cache .. ${END}"

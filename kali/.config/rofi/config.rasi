@@ -8,7 +8,7 @@ configuration {
 * {
     lines: 15;
     columns: 1;
-    background-color: #00000065;
+    background-color: #151515;
     border-color: #00000000;
     text-color: #EFEFEF;
     font: "Hack 11";
@@ -23,7 +23,7 @@ configuration {
 }
  
 #mainbox {
-    background-color: #00000000;
+    background-color: #151515;
     children: [inputbar, listview];
     spacing: 10px;
     /*margin: 20%;*/
@@ -34,7 +34,7 @@ configuration {
  
  
 #listview {
-    background-color: #00000000;
+    background-color: #151515;
     fixed-height: 0;
     border: 0px;
     spacing: 5px;
@@ -43,7 +43,7 @@ configuration {
 }
  
 #element {
-    background-color: #00000000;
+    background-color: #151515;
     border: 0;
     border-radius: 15px;
     padding: 3 0  3 4 ;

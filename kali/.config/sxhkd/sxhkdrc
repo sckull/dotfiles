@@ -127,7 +127,7 @@ super + ctrl + {Left,Down,Up,Right}
 
 # Custom move/resize
 super + alt + {Left,Down,Up,Right}
-	~/.config/bspwm/scripts/bspwm_resize {west,south,north,east}
+	~/.config/scripts/bspwm_rezise.sh {west,south,north,east}
 
 ########################
 # Custom Launchers App #
@@ -135,6 +135,6 @@ super + alt + {Left,Down,Up,Right}
 
 # Firefox
 # BurpSuite
-super + shift + b
-	burpsuite
+#super + shift + b
+#	burpsuite
 

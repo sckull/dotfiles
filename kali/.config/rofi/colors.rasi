@@ -2,7 +2,8 @@
 
 * {
   accent:           #0860f2E6;
-  background:       #24242480;
+  /*background:       #24242480;*/
+  background:       #151515;
   background-light: #1f1f1f;
   background-focus: #282828;
   foreground:       #ffffff;

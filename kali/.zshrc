@@ -66,9 +66,6 @@ alias la='lsd -a --group-dirs=first'
 alias l='lsd --group-dirs=first'
 alias lla='lsd -lha --group-dirs=first'
 alias ls='lsd --group-dirs=first'
-alias cat='/bin/batcat --paging=never'
-alias catn='cat'
-alias catnl='batcat'
 
 alias cme="crackmapexec"
 alias allports="nmap -p- --min-rate 10000 -oN allports"
@@ -92,7 +89,7 @@ source /usr/share/zsh-sudo/sudo.plugin.zsh
 
 # Functions
 function mkt(){
-	mkdir {nmap,content,exploits,scripts}
+	mkdir {www,exploits,scripts}
 }
 
 
@@ -100,11 +97,11 @@ function mkt(){
 
 function settarget(){
 	if [ $# -eq 1 ]; then
-	echo $1 > ~/.config/bin/target
+		echo $1 > ~/.config/scripts/target
 	elif [ $# -gt 2 ]; then
-	echo "settarget [IP] [NAME] | settarget [IP]"
+		echo "settarget [IP] [NAME] | settarget [IP]"
 	else
-	echo $1 $2 > ~/.config/bin/target
+		echo $1 $2 > ~/.config/scripts/target
 	fi
 }
 
